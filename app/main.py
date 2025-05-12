@@ -1,6 +1,10 @@
 # main.py
 from fastapi import FastAPI
 from app.routers import historia, contato, posts, estatuto, membros
+from app.config.database import Base, engine
+from app.models import user
+
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
